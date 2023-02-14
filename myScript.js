@@ -48,3 +48,30 @@ function playRound(playerSelection, computerSelection) {
     }
   }
 }
+
+function game() {
+  let playerScore = 0;
+  let computerScore = 0;
+  let playerSelection;
+  let result;
+
+  for (let i = 0; i < 5; i++) {
+    playerSelection = prompt("Choose your weapon (Rock, Paper or Scissors): ");
+    result = playRound(playerSelection, getComputerChoice());
+    console.log(result);
+
+    if (result[4] == 'L') {
+      computerScore++;
+    } else if (result[4] == 'W') {
+      playerScore++;
+    }
+  }
+
+  if (playerScore > computerScore) {
+    console.log('Congratulations, you win!')
+  } else if (playerScore < computerScore) {
+    console.log('Better luck next time! You lose.')
+  } else {
+    console.log('It\'s a draw.')
+  }
+}
